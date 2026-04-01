@@ -145,6 +145,13 @@ export class ServicesPageComponent {
       stack: 'Angular, REST API',
       status: 'Live',
       url: 'https://quizfusion.himusharier.me/'
+    },
+    {
+      name: 'Test Project',
+      summary: 'Test Project.',
+      stack: 'Angular, Docker',
+      status: 'Test',
+      url: 'https://google.com/'
     }
   ];
 }
