@@ -1,0 +1,60 @@
+<div class="dashboard-shell" [class.sidebar-open]="sidebarOpen">
+  <header class="topbar">
+    <div class="brand-section">
+      <button
+        type="button"
+        class="menu-button"
+        aria-label="Toggle sidebar"
+        (click)="toggleSidebar()"
+      >
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <div class="brand-text">
+        <p class="eyebrow">Welcome</p>
+        <h1>VPS Dashboard</h1>
+      </div>
+    </div>
+
+    <div class="topbar-actions">
+      <a class="action-link alt" href="https://github.com/himusharier" target="_blank" rel="noreferrer">GitHub Profile</a>
+    </div>
+  </header>
+
+  <aside class="sidebar" aria-label="Primary navigation">
+    <div class="sidebar-brand">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <div>
+        <p class="eyebrow">software engineer</p>
+        <h2>Sharier Himu</h2>
+      </div>
+    </div>
+
+    <nav>
+      @for (item of navItems; track item.label) {
+        <a
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          class="nav-item"
+          (click)="closeSidebarOnMobile()"
+        >
+          <span class="material-symbols-outlined">{{ item.icon }}</span>
+          <span>{{ item.label }}</span>
+        </a>
+      }
+    </nav>
+
+  </aside>
+
+  <button
+    type="button"
+    class="overlay"
+    aria-label="Close sidebar"
+    (click)="toggleSidebar()"
+  ></button>
+
+  <main class="content-area">
+    <section class="content-card">
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+</div>
