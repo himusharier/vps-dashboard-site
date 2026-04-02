@@ -2,23 +2,26 @@
 FROM node:20-alpine AS build
 WORKDIR /app
 
+# Copy package files and install dependencies
 COPY package*.json ./
 RUN npm install
 
+# Copy app source and build
 COPY . .
-RUN npm run build
+RUN npm run build -- --base-href /
 
-# Stage 2: Serve with Nginx
-FROM nginx:stable
+# Stage 2: Serve static files using 'serve'
+FROM node:20-alpine
+WORKDIR /app
 
-# Remove default Nginx index.html
-RUN rm -rf /usr/share/nginx/html/index.html
+# Install lightweight server
+RUN npm install -g serve
 
-# Copy Angular build contents directly to root
-COPY --from=build /app/dist/vps-dashboard-site/browser/ /usr/share/nginx/html/
+# Copy build output
+COPY --from=build /app/dist/vps-dashboard-site/browser/ ./dist/
 
-# Expose internal container port
-EXPOSE 80
+# Expose container port
+EXPOSE 8080
 
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Start server
+CMD ["serve", "-s", "dist", "-l", "8080"]
