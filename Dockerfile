@@ -5,6 +5,6 @@ RUN npm install
 COPY . .
 RUN npm run build
 FROM nginx:stable
-RUN mkdir -p /usr/share/nginx/html/vps-dashboard-site
-COPY --from=build /app/dist/vps-dashboard-site /usr/share/nginx/html/vps-dashboard-site
+RUN rm -rf /usr/share/nginx/html/index.html
+COPY --from=build /app/dist/vps-dashboard-site /usr/share/nginx/html
 EXPOSE 80
