@@ -15,7 +15,7 @@ FROM nginx:stable
 RUN rm -rf /usr/share/nginx/html/index.html
 
 # Copy Angular build contents directly to root
-COPY --from=build /app/dist/vps-dashboard-site/ /usr/share/nginx/html/
+COPY --from=build /app/dist/vps-dashboard-site/browser/ /usr/share/nginx/html/
 
 # Expose internal container port
 EXPOSE 80
