@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "common-dashboard-layout": {
+    "vps-dashboard-site": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -42,7 +42,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/common-dashboard-layout",
+            "outputPath": "dist/vps-dashboard-site",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -89,10 +89,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "common-dashboard-layout:build:production"
+              "buildTarget": "vps-dashboard-site:build:production"
             },
             "development": {
-              "buildTarget": "common-dashboard-layout:build:development"
+              "buildTarget": "vps-dashboard-site:build:development"
             }
           },
           "defaultConfiguration": "development"
