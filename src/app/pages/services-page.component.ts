@@ -65,7 +65,7 @@ interface HostedService {
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(2, minmax(240px, 1fr));
       gap: 0.85rem;
     }
 
