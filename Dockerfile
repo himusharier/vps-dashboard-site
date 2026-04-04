@@ -8,14 +8,15 @@ RUN npm install
 
 # Copy app source and build
 COPY . .
-RUN npm run build -- --base-href /
+# RUN npm run build -- --base-href /
+RUN npm run build
 
 # Stage 2: Serve static files using 'serve'
-FROM node:20-alpine
-WORKDIR /app
+# FROM node:20-alpine
+# WORKDIR /app
 
 # Install lightweight server
-RUN npm install -g serve
+# RUN npm install -g serve
 
 # Copy build output
 COPY --from=build /app/dist/vps-dashboard-site/browser/ ./dist/
@@ -24,4 +25,4 @@ COPY --from=build /app/dist/vps-dashboard-site/browser/ ./dist/
 EXPOSE 8080
 
 # Start server
-CMD ["serve", "-s", "dist", "-l", "8080"]
+# CMD ["serve", "-s", "dist", "-l", "8080"]
