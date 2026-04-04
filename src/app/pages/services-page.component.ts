@@ -65,10 +65,15 @@ interface HostedService {
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      max-width: 600px; /* limits to ~2 cards */
-      margin: 0 auto;   /* center grid */
+      grid-template-columns: 1fr;
       gap: 0.85rem;
+      width: 100%;
+    }
+
+    @media (min-width: 600px) {
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     .service-card {
