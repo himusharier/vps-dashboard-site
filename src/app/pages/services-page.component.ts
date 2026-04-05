@@ -140,25 +140,18 @@ interface HostedService {
 export class ServicesPageComponent {
   readonly services: HostedService[] = [
     {
-      name: 'Personal Portfolio',
-      summary: 'Main public site with profile details, contact information, and portfolio entry points.',
+      name: 'VPS Dashboard Site',
+      summary: 'A centralized personal dashboard showcasing profile information, contact details, and portfolio access points through a clean and accessible interface.',
       stack: 'Angular, SCSS',
       status: 'Live',
-      url: 'https://himusharier.site'
+      url: 'http://192.168.0.109'
     },
     {
       name: 'QuizFusion',
-      summary: 'Online quiz platform with interactive gameplay and modern responsive experience.',
-      stack: 'Angular, REST API',
+      summary: 'A dynamic online quiz platform offering engaging gameplay with a responsive design and seamless user experience.',
+      stack: 'Angular, Json, CSS, LocalStorage',
       status: 'Live',
-      url: 'https://quizfusion.himusharier.me/'
-    },
-    {
-      name: 'Test Project',
-      summary: 'Test Project.',
-      stack: 'Angular, Docker',
-      status: 'Test',
-      url: 'https://google.com/'
+      url: 'http://192.168.0.109:4200'
     }
   ];
 }
